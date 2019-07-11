@@ -1,10 +1,28 @@
 # Flat
 Bibilioteca para facilitar o codigo com as coleções do java.
 
-
 ## Funcionalidade
 A Bibilioteca visa que o desenvolvedor escreva menos codigo , e tenha mais produtividade
 na hora de usar collections do java.
+
+# Instalando
+
+Por enquanto você pode usar o JitPack para obter a dependencia maven
+
+```xml
+<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
+<dependency>
+	    <groupId>com.github.infernalia</groupId>
+	    <artifactId>Flat</artifactId>
+	    <version>master-SNAPSHOT</version>
+	</dependency>
+```
 
 ### Criação
 ```java
@@ -65,3 +83,5 @@ String redString = flat.get(string -> string.equalsIgnoreCase("Red"));
 // null safely
 String redString = flat.get(string -> string.equalsIgnoreCase("Red") , "Red");
 ```
+
+
