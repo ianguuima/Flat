@@ -29,8 +29,19 @@ Por enquanto você pode usar o JitPack para obter a dependencia maven
 //Java 8
 List<String> stringList = Arrays.asList("Red", "Green", "Blue");
 
+Set<String> stringSet = new HashSet(Arrays.asList("Red" , "Green" , "Blue");
+
 // Flat
-Flat<String> stringFlat = Flats.mutableListOf("Red", "Green", "Blue");
+
+// list
+Flat<String> stringFlatList = Flats.listOf("Red", "Green", "Blue");
+// or 
+Flat<String> stringFlatList = Flats.emptyList();
+
+// set
+Flat<String> stringFlatSet = Flats.setOf("Red", "Green", "Blue");
+// or
+Flat<String> stringFlatSet = Flats.emptySet();
 ```
 
 ### Filtrando Elementos
@@ -43,20 +54,6 @@ List<String> lowCaseList = stringList.stream()
 
 // Flat
 Flat<String> lowCaseFlat = stringFlat.map(String::toLowerCase);
-```
-
-### Aplicando Consumers
-
-```java
-// Java 8
-Collection<String> strings = Arrays.asList("Red", "Green", "Blue");
-strings.forEach(System.out::println); // void
-
-// Flat
-Flat<String> stringsFlat = Flats.mutableListOf("Red" , "Green" , "Blue")
-              .apply(System.out::println)
-              .map(String::toUpperCase)
-              .apply(System.out::println);
 ```
 
 ### Achando e Pegando valores
