@@ -6,7 +6,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Optional;
-import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
@@ -26,11 +25,11 @@ public class FlatLinkedList<T> extends LinkedList<T> implements Flat<T> {
 
       Iterator<T> iterator = this.iterator();
 
-      while (iterator.hasNext()){
+      while (iterator.hasNext()) {
 
          T next = iterator.next();
 
-         if(predicate.test(next)){
+         if (predicate.test(next)) {
             return Optional.ofNullable(next);
          }
       }
@@ -52,17 +51,6 @@ public class FlatLinkedList<T> extends LinkedList<T> implements Flat<T> {
    }
 
    @Override
-   public Flat<T> apply(Consumer<T> consumer) {
-      Iterator<T> iterator = this.iterator();
-
-      while (iterator.hasNext()){
-         consumer.accept(iterator.next());
-      }
-
-      return this;
-   }
-
-   @Override
    public <R> Flat<R> map(Function<T, R> function) {
       Flat<R> newFlat = new FlatArrayList<>();
 
@@ -71,13 +59,5 @@ public class FlatLinkedList<T> extends LinkedList<T> implements Flat<T> {
       }
 
       return newFlat;
-   }
-
-   @Override
-   public <R extends Collection<T>> R collect(Supplier<R> function) {
-      R r = function.get();
-      r.addAll(this);
-
-      return r;
    }
 }

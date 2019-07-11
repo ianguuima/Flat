@@ -6,7 +6,6 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Optional;
-import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
@@ -51,17 +50,6 @@ public class FlatHashSet<T> extends HashSet<T> implements Flat<T> {
    }
 
    @Override
-   public Flat<T> apply(Consumer<T> consumer) {
-      Iterator<T> iterator = this.iterator();
-
-      while (iterator.hasNext()){
-         consumer.accept(iterator.next());
-      }
-
-      return this;
-   }
-
-   @Override
    public <R> Flat<R> map(Function<T, R> function) {
       Flat<R> newFlat = new FlatHashSet<>();
 
@@ -72,11 +60,6 @@ public class FlatHashSet<T> extends HashSet<T> implements Flat<T> {
       return newFlat;
    }
 
-   @Override
-   public <R extends Collection<T>> R collect(Supplier<R> function) {
-      R r = function.get();
-      r.addAll(this);
 
-      return r;
-   }
+
 }

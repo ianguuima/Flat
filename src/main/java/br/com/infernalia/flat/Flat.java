@@ -1,8 +1,8 @@
 package br.com.infernalia.flat;
 
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.Optional;
-import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
@@ -13,11 +13,28 @@ public interface Flat<T> extends Collection<T> {
 
    T get(Predicate<T> predicate);
 
-   T get(Predicate<T> predicate , T def);
+   T get(Predicate<T> predicate, T def);
 
-   Flat<T> apply(Consumer<T> consumer);
+   <R> Flat<R> map(Function<T, R> function);
 
-   <R> Flat<R> map(Function<T , R> function);
+   default boolean matches(Predicate<T> predicate) {
+      Iterator<T> iterator = this.iterator();
+      while (iterator.hasNext()) {
 
-   <R extends Collection<T>> R collect(Supplier<R> function);
+         if (predicate.test(iterator.next())) {
+            return true;
+         }
+
+      }
+
+      return false;
+   }
+
+   default <R extends Collection<T>> R collect(Supplier<R> function) {
+      R r = function.get();
+      r.addAll(this);
+
+      return r;
+   }
+
 }
