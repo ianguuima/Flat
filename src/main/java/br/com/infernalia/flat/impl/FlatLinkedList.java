@@ -8,7 +8,6 @@ import java.util.LinkedList;
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.function.Supplier;
 
 public class FlatLinkedList<T> extends LinkedList<T> implements Flat<T> {
 
@@ -36,6 +35,23 @@ public class FlatLinkedList<T> extends LinkedList<T> implements Flat<T> {
 
 
       return Optional.empty();
+   }
+
+   @Override
+   public Flat<T> filter(Predicate<T> predicate) {
+      Flat<T> copy = new FlatLinkedList<>();
+
+      Iterator<T> iterator = this.iterator();
+
+      while(iterator.hasNext()){
+
+         T next = iterator.next();
+         if(predicate.test(next)){
+            copy.add(next);
+         }
+      }
+
+      return copy;
    }
 
    @Override

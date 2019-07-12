@@ -3,8 +3,7 @@ package br.com.infernalia.flat;
 import br.com.infernalia.flat.impl.FlatArrayList;
 import br.com.infernalia.flat.impl.FlatHashSet;
 
-
-import static java.util.Arrays.*;
+import static java.util.Arrays.asList;
 
 public class Flats {
 
@@ -24,6 +23,17 @@ public class Flats {
    @SafeVarargs
    public static <T> Flat<T> setOf(T... array) {
       return new FlatHashSet<>(asList(array));
+   }
+
+   public static Flat<Integer> intFlat(int min , int max){
+
+      Flat<Integer> integers = new FlatHashSet<>();
+
+      for (int i = min; i < max; i++) {
+         integers.add(i);
+      }
+
+      return integers;
    }
 
 }

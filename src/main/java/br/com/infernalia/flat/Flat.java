@@ -17,6 +17,13 @@ public interface Flat<T> extends Collection<T> {
 
    <R> Flat<R> map(Function<T, R> function);
 
+   Flat<T> filter(Predicate<T> predicate);
+
+
+   default Flat<T> reversed(){
+      return this;
+   }
+
    default boolean matches(Predicate<T> predicate) {
       Iterator<T> iterator = this.iterator();
       while (iterator.hasNext()) {
