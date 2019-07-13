@@ -32,14 +32,14 @@ Por enquanto você pode usar o JitPack para obter a dependencia maven ou gradle
 
 ```gradle
 allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
+     repositories {
+     ...
+     maven { url 'https://jitpack.io' }
+   }
+}
 
 dependencies {
-	   implementation 'com.github.infernalia:Flat:c826a996'
-	}
+    implementation 'com.github.infernalia:Flat:c826a996'
+}
 
 ```
