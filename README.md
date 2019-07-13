@@ -21,8 +21,8 @@ Por enquanto você pode usar o JitPack para obter a dependencia maven
 </repositories>
 
 <dependency>
-	  <groupId>com.github.infernalia</groupId>
-	  <artifactId>Flat</artifactId>
-	  <version>c826a996</version>
+    <groupId>com.github.infernalia</groupId>
+    <artifactId>Flat</artifactId>
+    <version>c826a996</version>
 </dependency>
 ```
