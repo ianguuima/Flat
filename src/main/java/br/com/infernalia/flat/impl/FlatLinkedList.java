@@ -43,10 +43,10 @@ public class FlatLinkedList<T> extends LinkedList<T> implements Flat<T> {
 
       Iterator<T> iterator = this.iterator();
 
-      while(iterator.hasNext()){
+      while (iterator.hasNext()) {
 
          T next = iterator.next();
-         if(predicate.test(next)){
+         if (predicate.test(next)) {
             copy.add(next);
          }
       }
@@ -56,18 +56,47 @@ public class FlatLinkedList<T> extends LinkedList<T> implements Flat<T> {
 
    @Override
    public T get(Predicate<T> predicate) {
-      return find(predicate)
-              .orElse(null);
+
+      Iterator<T> iterator = this.iterator();
+
+      while (iterator.hasNext()) {
+         T next = iterator.next();
+         if (predicate.test(next)) {
+            return next;
+         }
+      }
+
+      return null;
    }
 
    @Override
    public T get(Predicate<T> predicate, T def) {
-      return find(predicate)
-              .orElse(def);
+      T t = this.get(predicate);
+
+      return t == null ? def : t;
    }
+
+   public Flat<T> takeFirst(int size) {
+
+      Flat<T> flat = new FlatArrayList<>();
+
+      for (int n = 0; n < size; n++) {
+
+         T t = this.get(n);
+
+         if (t != null) {
+            flat.add(t);
+         }
+      }
+
+      return flat;
+   }
+
+
 
    @Override
    public <R> Flat<R> map(Function<T, R> function) {
+
       Flat<R> newFlat = new FlatArrayList<>();
 
       for (T t : this) {

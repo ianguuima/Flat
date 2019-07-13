@@ -56,16 +56,59 @@ public class FlatArrayList<T> extends ArrayList<T> implements Flat<T> {
       return copy;
    }
 
+
    @Override
    public T get(Predicate<T> predicate) {
-      return find(predicate)
-              .orElse(null);
+
+      Iterator<T> iterator = this.iterator();
+
+      while(iterator.hasNext()){
+         T next = iterator.next();
+         if(predicate.test(next)){
+            return next;
+         }
+      }
+
+      return null;
    }
 
    @Override
    public T get(Predicate<T> predicate, T def) {
-      return find(predicate)
-              .orElse(def);
+      T t = this.get(predicate);
+
+      return t == null ? def : t;
+   }
+
+
+   @Override
+   public Flat<T> takeFirst(int size){
+
+      Flat<T> flat = new FlatArrayList<>();
+
+      for (int n = 0; n < size; n++) {
+
+         T t = this.get(n);
+
+         if(t != null){
+            flat.add(t);
+         }
+      }
+
+      return flat;
+   }
+
+   public Flat<T> takeLast(int size) {
+      Flat<T> flat = new FlatArrayList<>();
+
+      for(int n = size; n > 0; n--){
+         T t = this.get(n);
+
+         if(t != null){
+            flat.add(t);
+         }
+      }
+
+      return flat;
    }
 
    @Override

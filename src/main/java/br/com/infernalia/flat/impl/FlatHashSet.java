@@ -23,11 +23,11 @@ public class FlatHashSet<T> extends HashSet<T> implements Flat<T> {
 
       Iterator<T> iterator = this.iterator();
 
-      while (iterator.hasNext()){
+      while (iterator.hasNext()) {
 
          T next = iterator.next();
 
-         if(predicate.test(next)){
+         if (predicate.test(next)) {
             return Optional.ofNullable(next);
          }
       }
@@ -42,10 +42,10 @@ public class FlatHashSet<T> extends HashSet<T> implements Flat<T> {
 
       Iterator<T> iterator = this.iterator();
 
-      while(iterator.hasNext()){
+      while (iterator.hasNext()) {
 
          T next = iterator.next();
-         if(predicate.test(next)){
+         if (predicate.test(next)) {
             copy.add(next);
          }
       }
@@ -59,10 +59,33 @@ public class FlatHashSet<T> extends HashSet<T> implements Flat<T> {
               .orElse(null);
    }
 
+
    @Override
    public T get(Predicate<T> predicate, T def) {
       return find(predicate)
               .orElse(def);
+   }
+
+   public Flat<T> takeFirst(int size) {
+
+      Flat<T> flat = new FlatArrayList<>();
+
+      int i = 0;
+
+      Iterator<T> iterator = this.iterator();
+
+      while (iterator.hasNext()) {
+
+         if (i >= size) break;
+
+         T next = iterator.next();
+
+         flat.add(next);
+
+         i++;
+      }
+
+      return flat;
    }
 
    @Override
@@ -75,7 +98,6 @@ public class FlatHashSet<T> extends HashSet<T> implements Flat<T> {
 
       return newFlat;
    }
-
 
 
 }
