@@ -10,8 +10,9 @@ na hora de usar collections do java.
 
 # Instalando
 
-Por enquanto você pode usar o JitPack para obter a dependencia maven
+Por enquanto você pode usar o JitPack para obter a dependencia maven ou gradle
 
+### Maven 
 ```xml
 <repositories>
   <repository>
@@ -25,4 +26,20 @@ Por enquanto você pode usar o JitPack para obter a dependencia maven
     <artifactId>Flat</artifactId>
     <version>c826a996</version>
 </dependency>
+```
+
+### Gradle
+
+```gradle
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+
+dependencies {
+	   implementation 'com.github.infernalia:Flat:c826a996'
+	}
+
 ```
