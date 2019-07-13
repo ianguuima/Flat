@@ -1,3 +1,6 @@
+
+[![](https://jitpack.io/v/infernalia/Flat.svg)](https://jitpack.io/#infernalia/Flat)
+
 # Flat
 Bibilioteca para facilitar o codigo com as coleções do java.
 
@@ -18,8 +21,8 @@ Por enquanto você pode usar o JitPack para obter a dependencia maven
 </repositories>
 
 <dependency>
-   <groupId>com.github.infernalia</groupId>
-   <artifactId>Flat</artifactId>
-   <version>master-SNAPSHOT</version>
+	  <groupId>com.github.infernalia</groupId>
+	  <artifactId>Flat</artifactId>
+	  <version>c826a996</version>
 </dependency>
 ```
