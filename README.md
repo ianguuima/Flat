@@ -14,12 +14,10 @@ Por enquanto você pode usar o JitPack para obter a dependencia maven ou gradle
 
 ### Maven 
 ```xml
-<repositories>
   <repository>
     <id>jitpack.io</id>
     <url>https://jitpack.io</url>
   </repository>
-</repositories>
 
 <dependency>
     <groupId>com.github.infernalia</groupId>
