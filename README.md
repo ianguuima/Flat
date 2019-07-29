@@ -23,9 +23,9 @@ Por enquanto você pode usar o JitPack para obter a dependencia maven ou gradle
   </repository>
 
 <dependency>
-	  <groupId>com.github.infernalia</groupId>
-	  <artifactId>Flat</artifactId>
-	  <version>bf55d494</version>
+    <groupId>com.github.infernalia</groupId>
+    <artifactId>Flat</artifactId>
+    <version>bf55d494</version>
 </dependency>
 ```
 
