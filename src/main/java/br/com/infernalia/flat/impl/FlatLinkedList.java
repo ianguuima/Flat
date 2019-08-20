@@ -76,9 +76,10 @@ public class FlatLinkedList<T> extends LinkedList<T> implements Flat<T> {
       return t == null ? def : t;
    }
 
+   @Override
    public Flat<T> takeFirst(int size) {
 
-      Flat<T> flat = new FlatArrayList<>();
+      Flat<T> flat = Flat.emptyList();
 
       for (int n = 0; n < size; n++) {
 
@@ -91,7 +92,6 @@ public class FlatLinkedList<T> extends LinkedList<T> implements Flat<T> {
 
       return flat;
    }
-
 
 
    @Override

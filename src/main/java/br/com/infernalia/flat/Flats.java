@@ -1,7 +1,10 @@
 package br.com.infernalia.flat;
 
 import br.com.infernalia.flat.impl.FlatArrayList;
+import br.com.infernalia.flat.impl.FlatHashMap;
 import br.com.infernalia.flat.impl.FlatHashSet;
+
+import java.util.Map;
 
 import static java.util.Arrays.asList;
 
@@ -26,7 +29,17 @@ public class Flats {
       return new FlatHashSet<>(asList(array));
    }
 
+   public static <K , V> FlatMap<K , V> newFlatMap(){
+      return new FlatHashMap<>();
+   }
 
+   public static <K , V> FlatMap<K , V> fromMap(Map<K , V> map){
+
+      FlatMap<K , V> flatMap = new FlatHashMap<>();
+      flatMap.putAll(map);
+
+      return flatMap;
+   }
 
    public static FlatArrayList<Integer> intFlat(int min , int max){
 

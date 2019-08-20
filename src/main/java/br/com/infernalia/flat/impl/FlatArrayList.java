@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-public class FlatArrayList<T> extends ArrayList<T> implements Flat<T> {
+public class FlatArrayList<T> extends ArrayList<T> implements Flat<T>{
 
    public FlatArrayList() {
       super();
@@ -110,6 +110,8 @@ public class FlatArrayList<T> extends ArrayList<T> implements Flat<T> {
 
       return flat;
    }
+
+
 
    @Override
    public <R> Flat<R> map(Function<T, R> function) {
