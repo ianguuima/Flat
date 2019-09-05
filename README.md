@@ -11,7 +11,12 @@ Bibilioteca para facilitar o codigo com as coleções do java.
 A Bibilioteca visa que o desenvolvedor escreva menos codigo , e tenha mais produtividade
 na hora de usar collections do java.
 
-# Instalando
+## Uso
+
+Para mais detalhes , consulte nossa [Wiki](https://github.com/infernalia/Flat/wiki)
+
+
+# Instalação
 
 Por enquanto você pode usar o JitPack para obter a dependencia maven ou gradle
 
